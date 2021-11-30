@@ -19,44 +19,48 @@
             <div class="row">
                 <!-- colonna sx  -->
                 <div class="col-1">
-                    <!-- barra utente  -->
-                    <div class="utente">
-
-                        <div class="img-utente">
-                            <img src="img/avatar_2.jpg" alt="">
-                            <span>nome utente</span>
+                    <div class="top">
+                        <!-- barra utente  -->
+                        <div class="utente">
+    
+                            <div class="img-utente">
+                                <img src="img/avatar_2.jpg" alt="">
+                                <span>nome utente</span>
+                            </div>
+    
+                            <div class="icone-utente">
+                                <i class="fas fa-circle-notch"></i>
+                                <i class="fas fa-comment-alt"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+    
                         </div>
-
-                        <div class="icone-utente">
-                            <i class="fas fa-circle-notch"></i>
-                            <i class="fas fa-comment-alt"></i>
-                            <i class="fas fa-ellipsis-v"></i>
+                        <!-- /barra utente  -->
+    
+                        <!-- attiva notiiche  -->
+                        <div class="attiva-notifiche">
+                            <div class="icona-bell">
+                               <i class="fas fa-bell-slash"></i>
+                            </div>
+                            <div class="text">
+                                <h4>Ricevi notifiche dei nuovi messaggi</h4>
+                                <a href="">Attiva notifiche desktop</a>
+                            </div>
                         </div>
-
+                        <!--// attiva notiiche  -->
+    
+                        <!-- searchbar -->
+                        <form action="/action_page.php">
+                            <div class="button search"><a href="#"><i class="fa fa-search"></i></a></div>
+                            <input type="text" placeholder="cerca o inizia una nuova chat" name="search">
+                        </form>
+                        <!-- //searchbar -->
                     </div>
-                    <!-- /barra utente  -->
-
-                    <!-- attiva notiiche  -->
-                    <div class="attiva-notifiche">
-                        <div class="icona-bell">
-                           <i class="fas fa-bell-slash"></i>
+                    <div class="container-contatti">
+                        <div class="elenco-contatti" v-for='(contact, index) in contacts'@click='active(index)'>
+                            <img :src="'img/avatar'+ contact.avatar + '.jpg'" alt="">
+                            <span>{{contact.name}}</span>
                         </div>
-                        <div class="text">
-                            <h4>Ricevi notifiche dei nuovi messaggi</h4>
-                            <a href="">Attiva notifiche desktop</a>
-                        </div>
-                    </div>
-                    <!--// attiva notiiche  -->
-
-                    <!-- searchbar -->
-                    <form action="/action_page.php">
-                        <div class="button search"><a href="#"><i class="fa fa-search"></i></a></div>
-                        <input type="text" placeholder="cerca o inizia una nuova chat" name="search">
-                    </form>
-                    <!-- //searchbar -->
-                    <div class="elenco-contatti" v-for='(contact, index) in contacts'@click='counter = index'>
-                        <img :src="'img/avatar'+ contact.avatar + '.jpg'" alt="">
-                        <span>{{contact.name}}</span>
                     </div>
 
                 </div>
@@ -83,7 +87,11 @@
                         </div>
                         <!-- //barra utente chat  -->
                         <main>
-                
+                           <div v-for="(text, index) in contacts">
+                               <div v-for="(msg,i) in text.messages">
+                                   {{i}}
+                               </div>
+                           </div>
                         </main>
                         <footer>
                             <i class="far fa-smile"></i>

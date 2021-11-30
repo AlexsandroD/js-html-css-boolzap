@@ -54,7 +54,7 @@
                         <input type="text" placeholder="cerca o inizia una nuova chat" name="search">
                     </form>
                     <!-- //searchbar -->
-                    <div class="elenco-contatti" v-for='(contact, index) in contacts'>
+                    <div class="elenco-contatti" v-for='(contact, index) in contacts'@click='counter = index'>
                         <img :src="'img/avatar'+ contact.avatar + '.jpg'" alt="">
                         <span>{{contact.name}}</span>
                     </div>
@@ -65,7 +65,31 @@
 
                 <!-- colonna dx  -->
                 <div class="col-2">
-
+                     <div class="utente">
+                        <!-- barra utente chat  -->
+                            <div class="img-utente-conversazione">
+                                <img :src="'img/avatar'+ contacts[counter].avatar + '.jpg'" alt="">
+                                <div class="text">
+                                    <div>{{contacts[counter].name}}</div>
+                                    <div class="div">ultimo accesso</div>
+                                 </div>
+                            </div>
+    
+                            <div class="icone-utente-conversazione">
+                                <i class="fas fa-circle-notch"></i>
+                                <i class="fas fa-comment-alt"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        <!-- //barra utente chat  -->
+                        <main>
+                
+                        </main>
+                        <footer>
+                            <i class="far fa-smile"></i>
+                            <input type="text">
+                            <i class="fas fa-microphone"></i>
+                        </footer>
                 </div>
                 <!-- /colonna dx  -->
 

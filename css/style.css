@@ -8,4 +8,163 @@
 body{
     font-family: 'Roboto',
     sans-serif;
+    height: 100vh;
+    background: rgb(0, 150, 137);
+    background: linear-gradient(180deg, rgba(0, 150, 137, 1) 15%, rgba(219, 219, 210, 1) 15%);
+}
+
+
+.container{
+    background-color: white;
+}
+
+.row{
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+}
+
+/* col-1 styling */
+
+.col-1{
+    width: 30%;
+    height: 100%
+
+}
+
+/* barra utente  */
+
+.utente{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: gray;
+    padding: 5px;
+    height: 50px;
+}
+
+.img-utente{
+    display: flex;
+    align-items: center;
+}
+
+.img-utente img{
+    width: 35px;
+    border-radius: 50%;
+    margin: 0 8px;
+}
+.icone-utente i{
+    margin: 0 5px;
+}
+
+
+/* //barra utente  */
+
+/* notification */
+.attiva-notifiche{
+    display: flex;
+    align-items: center;
+    height: 60px;
+    background-color:#8EDAFC;
+    padding: 5px;
+}
+
+.attiva-notifiche i{
+    font-size:20px;
+    padding: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+.attiva-notifiche .text a{
+    font-size: 15px;
+}
+/* /notification */
+
+/* search bar  */
+.col-1 form{
+    position: relative;
+    background-color: white;
+    padding: 3px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.col-1 input{
+    width: 85%;
+    height: 30px;
+    border: none;
+
+}
+
+.col-1 input::placeholder{
+  
+}
+.col-1 input:focus {
+    border: none;
+    outline: none;
+}
+.col-1 .button.search{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+}
+
+.col-1 .button.search a{
+    text-decoration: none;
+    color: gray;
+}
+
+/* ///search bar  */
+
+/* elenco contatti  */
+.elenco-contatti{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.elenco-contatti img{
+    padding: 2px;
+    width: 55px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+/* //elenco contatti  */
+
+
+/* ///col-1 styling */
+
+
+
+
+/* col2 styling  */
+
+.col-2{
+    width: 70%;
+}
+/* ///col2 styling  */
+
+
+
+
+
+
+
+
+/* debug */
+
+.debug .container{
+    height: 90vh;
+    width: 80%;
+    margin:2% auto;
+    
+}
+
+
+.debug .col-1, .debug .col-2{
+    height: 100%;
+    
 }

@@ -85,9 +85,9 @@ const app = new Vue({
 
         
 
-       counter:0,
-
-
+       currentUser:0,
+       sent:'sent',
+       received: "received",
 
 
     },
@@ -95,7 +95,7 @@ const app = new Vue({
 
     methods:{
         active: function(index){
-            this.counter = index;
+            this.currentUser = index;
         }
     }
     

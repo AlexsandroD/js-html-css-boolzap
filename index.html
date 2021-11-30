@@ -72,9 +72,9 @@
                      <div class="utente">
                         <!-- barra utente chat  -->
                             <div class="img-utente-conversazione">
-                                <img :src="'img/avatar'+ contacts[counter].avatar + '.jpg'" alt="">
+                                <img :src="'img/avatar'+ contacts[currentUser].avatar + '.jpg'" alt="">
                                 <div class="text">
-                                    <div>{{contacts[counter].name}}</div>
+                                    <div>{{contacts[currentUser].name}}</div>
                                     <div class="div">ultimo accesso</div>
                                  </div>
                             </div>
@@ -87,8 +87,9 @@
                         </div>
                         <!-- //barra utente chat  -->
                         <main>
-                           <div v-for="(text, index) in contacts.messages">
-                             {{index}}
+                           <div id="chat" v-for="(text, index) in contacts[currentUser].messages" :class="text.status == sent ? 'sent' : 'received' ">
+                              {{text.message}}
+                              <div class="date">{{text.date}}</div>
                            </div>
                         </main>
                         <footer>

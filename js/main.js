@@ -97,16 +97,14 @@ const app = new Vue({
         active: function(index){
             this.currentUser = index;
         },
-        addMessage: function () {
-            if (this.messageContent != '') {
-                this.list.messages.push(
-                    {
-                        date: '10/01/2020 15:30:55',
-                        message: this.message,
-                        status: 'sent'
-                    }
-              )
-            }
+        addMessage: function (current) {
+            console.log(this.messageContent
+                )
+            this.contacts[current].messages.push({
+                message:this.messageContent,
+                status:'sent',
+                date: '10/01/2020 15:50:00',
+            })
             this.messageContent = '';
 
 

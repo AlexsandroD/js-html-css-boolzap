@@ -95,7 +95,7 @@
                         <footer>
                             <i class="far fa-smile"></i>
                             <i class="fas fa-paperclip"></i>
-                            <input type="text" placeholder="Type a message" v-model="messageContent"  @keyup.enter='addMessage'>
+                            <input type="text" placeholder="Type a message" v-model="messageContent"  @keyup.enter='addMessage(currentUser)'>
                             <i class="fas fa-microphone"></i>
                         </footer>
                 </div>

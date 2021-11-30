@@ -88,7 +88,7 @@ const app = new Vue({
        currentUser:0,
        sent:'sent',
        received: "received",
-
+       messageContent:null
 
     },
    
@@ -96,8 +96,23 @@ const app = new Vue({
     methods:{
         active: function(index){
             this.currentUser = index;
+        },
+        addMessage: function () {
+            if (this.messageContent != '') {
+                this.list.messages.push(
+                    {
+                        date: '10/01/2020 15:30:55',
+                        message: this.message,
+                        status: 'sent'
+                    }
+              )
+            }
+            this.messageContent = '';
+
+
         }
     }
+
     
 })
 

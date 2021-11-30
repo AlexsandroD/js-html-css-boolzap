@@ -87,10 +87,8 @@
                         </div>
                         <!-- //barra utente chat  -->
                         <main>
-                           <div v-for="(text, index) in contacts">
-                               <div v-for="(msg,i) in text.messages">
-                                   {{i}}
-                               </div>
+                           <div v-for="(text, index) in contacts.messages">
+                             {{index}}
                            </div>
                         </main>
                         <footer>

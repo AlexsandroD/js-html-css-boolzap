@@ -11,7 +11,7 @@ body {
         sans-serif;
     height: 100vh;
     background: rgb(0, 150, 137);
-    background: linear-gradient(180deg, rgba(0, 150, 137, 1) 15%, rgba(219, 219, 210, 1) 15%);
+    background: linear-gradient(180deg, rgba(0, 150, 137, 1) 10%, rgba(219, 219, 210, 1) 10%);
 }
 
 
@@ -33,9 +33,6 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    border-right: 0.1px solid #D7D7D7;
-
-
 }
 
 /* barra utente  */
@@ -62,6 +59,7 @@ body {
 
 .icone-utente i {
     margin: 0 5px;
+    color: #B1B1B1;
 }
 
 
@@ -77,6 +75,7 @@ body {
 }
 
 .attiva-notifiche i {
+    color: #8EDAFC;
     font-size: 20px;
     padding: 12px;
     background-color: #fff;
@@ -86,6 +85,8 @@ body {
 
 .attiva-notifiche .text a {
     font-size: 15px;
+    color: #517788;
+    font-size: 12px;
 }
 
 /* /notification */
@@ -108,9 +109,9 @@ body {
 
 }
 
-.col-1 input::placeholder {}
 
-.col-1 input:focus {
+
+.col-1, .col-2 input:focus {
     border: none;
     outline: none;
 }
@@ -133,8 +134,10 @@ body {
 .container-contatti {
     overflow-y: scroll;
     height: inherit;
+}
 
-
+.elenco-contatti:hover{
+    background-color:#E9EBEB ;
 }
 
 .elenco-contatti {
@@ -162,6 +165,7 @@ body {
 
 .col-2 {
     width: 70%;
+    border-left: 0.1px solid #b4b2b2;
 }
 
 /* barra conversazione  */
@@ -188,6 +192,12 @@ body {
 
 .icone-utente-conversazione i {
     margin: 0 5px;
+    color: #B1B1B1;
+}
+
+.last-access{
+    color: gray;
+    font-size: 14px;
 }
 
 /* //barra conversazione  */
@@ -214,9 +224,9 @@ main {
     align-items: start;
     justify-content: center;
     align-self: end;
-    width: 30%;
+    width: 34%;
     background-color: #D5F9BA;
-    margin: 10px 60px;
+    margin: 10px 100px;
     padding: 10px;
     border-radius: 10px;
     font-size: 14px;
@@ -229,9 +239,9 @@ main {
     justify-content: center;
     align-items: start;
     align-self: start;
-    margin: 10px 60px;
+    margin: 10px 100px;
     padding: 10px;
-    width: 30%;
+    width: 34%;
     background-color: white;
     border-radius: 10px;
     font-size: 14px;
@@ -267,6 +277,13 @@ footer input {
 
 footer i {
     margin: 0 5px;
+    color: #B1B1B1;
+}
+
+.col-2 input{
+    border: none;
+    padding: 5px;
+    border-radius: 8px;
 }
 
 /* footer section  */

@@ -107,8 +107,29 @@ const app = new Vue({
             })
             this.messageContent = '';
 
+            
+            answer()
 
-        }
+        },
+        addAnswer: function(){
+            console.log()
+             this.contacts[current].messages.push({
+                 message: 'ok',
+                 status: 'received',
+                 date: '10/01/2020 15:50:00',
+             })
+        },
+
+           answer: function () {
+
+               let self = this;
+               this.timer = setInterval(function () {
+                   self.addAnswer(this.contacts[current].messages.message);
+               }, 1000);
+               console.log()
+           },
+        
+     
     }
 
     

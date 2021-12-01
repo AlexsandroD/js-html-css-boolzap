@@ -25,7 +25,7 @@
     
                             <div class="img-utente">
                                 <img src="img/avatar_2.jpg" alt="">
-                                <span>nome utente</span>
+                                <span>Nome Utente</span>
                             </div>
     
                             <div class="icone-utente">
@@ -43,7 +43,7 @@
                                <i class="fas fa-bell-slash"></i>
                             </div>
                             <div class="text">
-                                <h4>Ricevi notifiche dei nuovi messaggi</h4>
+                                <h5>Ricevi notifiche dei nuovi messaggi</h5>
                                 <a href="">Attiva notifiche desktop</a>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                                 <img :src="'img/avatar'+ contacts[currentUser].avatar + '.jpg'" alt="">
                                 <div class="text">
                                     <div>{{contacts[currentUser].name}}</div>
-                                    <div class="div">ultimo accesso</div>
+                                    <div class="last-access">Ultimo accesso oggi alle</div>
                                  </div>
                             </div>
     
@@ -87,7 +87,7 @@
                         </div>
                         <!-- //barra utente chat  -->
                         <main>
-                           <div id="chat" v-for="(text, index) in contacts[currentUser].messages" :class="text.status == sent ? 'sent' : 'received' ">
+                           <div id="chat" v-for="(text, index) in contacts[currentUser].messages" :class="text.status == sent ? 'sent' : 'received' " @keyup.enter='answer(currentUser)'>
                               {{text.message}}
                               <div class="date">{{text.date}}</div>
                            </div>
@@ -98,7 +98,7 @@
                             <input type="text" placeholder="Type a message" v-model="messageContent"  @keyup.enter='addMessage(currentUser)'>
                             <i class="fas fa-microphone"></i>
                         </footer>
-                </div>
+                </div> 
                 <!-- /colonna dx  -->
 
                 

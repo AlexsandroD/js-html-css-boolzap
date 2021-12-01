@@ -7,11 +7,10 @@
 
 /* commons */
 body {
-    font-family: 'Roboto',
-        sans-serif;
+    font-family: 'Lato',sans-serif;
     height: 100vh;
     background: rgb(0, 150, 137);
-    background: linear-gradient(180deg, rgba(0, 150, 137, 1) 10%, rgba(219, 219, 210, 1) 10%);
+    background: linear-gradient(180deg, rgba(0, 150, 137, 1) 12%, rgba(219, 219, 210, 1) 12%);
 }
 
 
@@ -106,10 +105,13 @@ body {
     width: 85%;
     height: 30px;
     border: none;
+    padding: 5px;
 
 }
 
-
+.col-1 input:active{
+    border: none;
+}
 
 .col-1, .col-2 input:focus {
     border: none;
@@ -210,6 +212,7 @@ main {
     background-size: contain;
     height: calc(100% - 100px);
     overflow-y: scroll;
+    padding: 10px;
 }
 
 /* message section  */
@@ -224,14 +227,16 @@ main {
     align-items: start;
     justify-content: center;
     align-self: end;
-    width: 34%;
     background-color: #D5F9BA;
-    margin: 10px 100px;
+    max-width: 35%;
+    margin:0px 100px 20px 100px;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 12px 12px 0px 12px;
     font-size: 14px;
 
+
 }
+
 
 .received {
     display: flex;
@@ -239,17 +244,18 @@ main {
     justify-content: center;
     align-items: start;
     align-self: start;
+    max-width: 35%;
     margin: 10px 100px;
     padding: 10px;
-    width: 34%;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 12px 12px 12px 0px;
     font-size: 14px;
 
 }
 
 .date{
-   align-self: end;
+    padding: 5px;
+    align-self: end;
     font-size: 8px;
     color: rgb(182, 179, 179);
 }
@@ -292,7 +298,9 @@ footer i {
 /* ///col2 styling  */
 
 
-
+.active-chat{
+    background-color:#E9EBEB;
+}
 
 
 

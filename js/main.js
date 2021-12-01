@@ -88,27 +88,35 @@ const app = new Vue({
        currentUser:0,
        sent:'sent',
        received: "received",
-       messageContent:null
+       messageContent:null,
+       activeChat:'activeChat',
+       timer:0,
 
     },
+   
    
 
     methods:{
         active: function(index){
             this.currentUser = index;
         },
+
+
         addMessage: function (current) {
             console.log(this.messageContent
                 )
-            this.contacts[current].messages.push({
-                message:this.messageContent,
-                status:'sent',
-                date: '10/01/2020 15:50:00',
-            })
+                if (this.messageContent != ''){
+                    this.contacts[current].messages.push({
+                        message:this.messageContent,
+                        status:'sent',
+                        date: '10/01/2020 15:50:00',
+                    })
+                }
+    
             this.messageContent = '';
 
             
-            answer()
+            
 
         },
         addAnswer: function(){
@@ -123,7 +131,9 @@ const app = new Vue({
            answer: function () {
 
                let self = this;
-               this.timer = setInterval(function () {
+               this.timer = setTimeout(() => {
+                   
+               }, timeout);(function () {
                    self.addAnswer(this.contacts[current].messages.message);
                }, 1000);
                console.log()

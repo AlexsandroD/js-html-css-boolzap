@@ -111,33 +111,35 @@ const app = new Vue({
                         status:'sent',
                         date: '10/01/2020 15:50:00',
                     })
+                    this.answer()
                 }
-    
             this.messageContent = '';
-
-            
-            
-
         },
-        addAnswer: function(){
-            console.log()
-             this.contacts[current].messages.push({
+         addAnswer: function () {
+             console.log()
+             this.contacts[this.currentUser].messages.push({
                  message: 'ok',
                  status: 'received',
                  date: '10/01/2020 15:50:00',
              })
-        },
+         },
 
-           answer: function () {
+         answer: function () {
+             setTimeout(() => {
+                 this.addAnswer();
+             }, 1000);
+         },
+        //   answer: function () {
 
-               let self = this;
-               this.timer = setTimeout(() => {
+        //        let self = this;
+        //        this.timer = setTimeout(() => {
                    
-               }, timeout);(function () {
-                   self.addAnswer(this.contacts[current].messages.message);
-               }, 1000);
-               console.log()
-           },
+        //        }, timeout);(function () {
+        //            self.addAnswer(this.contacts[current].messages.message);
+        //        }, 1000);
+        //        console.log()
+        //    }, 
+
         
      
     }

@@ -56,12 +56,15 @@
                         </div>
                         <!-- //searchbar -->
                     </div>
-                    <div class="container-contatti">
-                        <div class="elenco-contatti" v-for='(contact, index) in contacts'@click='active(index)' :class="currentUser == index ? 'active-chat' : '' ">
+                    <!-- contacts section  -->
+
+                    <div class="container-contatti" >
+                        <div class="elenco-contatti" v-for='(contact, index) in contacts'@click='active(index)' :class="currentUser == index ? 'active-chat' : ''" :class='contacts.visible == true ? "none" : "" '>
                             <img :src="'img/avatar'+ contact.avatar + '.jpg'" alt="">
                             <span>{{contact.name}}</span>
                         </div>
                     </div>
+                    <!-- contacts section  -->
 
                 </div>
                 <!-- /colonna sx  -->
@@ -75,7 +78,7 @@
                                 <img :src="'img/avatar'+ contacts[currentUser].avatar + '.jpg'" alt="">
                                 <div class="text">
                                     <div>{{contacts[currentUser].name}}</div>
-                                    <div class="last-access">Ultimo accesso oggi alle</div>
+                                    <div class="last-access">{{lastAccess}}</div>
                                  </div>
                             </div>
     

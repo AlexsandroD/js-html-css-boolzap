@@ -95,9 +95,16 @@ const app = new Vue({
        received: "received",
        messageContent:null,
        activeChat:'activeChat',
-       searchUtente:''
+       searchUtente:'',
+       none:'none',
+       lastAccess: 'Ultimo acesso'
 
     },
+
+   mounted: function () {
+       this.lastSeen();
+
+   },
 
     
    
@@ -128,6 +135,7 @@ const app = new Vue({
                  status: 'received',
                  date: dayjs().format('DD/MM/YYYY,HH,mm,ss'),
              })
+             this.lastAccess = 'Ultimo accesso '+ dayjs().format('DD/MM/YYYY HH:mmss')
          },
 
          answer: function () {
@@ -138,20 +146,33 @@ const app = new Vue({
        
 
     
-         filter: function () {
-            let n='';
-            this.contacts.forEach(element => {
-                for (let i = 0; i < element.name.length; i++){
-                    n += element.name[i];
-                    // console.log(n)
-                   console.log(n);
-                }
-              
+        filter: function() {
+            if(this.searchUtente != ''){
 
-            });
+                this.contacts.forEach(element  => {
+                    if(element.name.includes(this.searchUtente)){
+                        element.visible = true; 
+                        console.log(element.visible)
+                    }else{
+                        element.visible = false;
+                        console.log(element.visible)     
+                    }
+                    
+                    
+                });
+            }
+        },  
 
-            
-         }    
+      
+          lastSeen: function () {
+              this.contacts[this.currentUser].messages.forEach(element => {
+                  if (element.status == 'received'){
+                      this.lastAccess ='last seen'+ ' ' + element.date
+                  }
+              });
+          },
+
+        
     }
 
 

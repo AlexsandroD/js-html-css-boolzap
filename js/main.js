@@ -9,17 +9,20 @@ const app = new Vue({
                 messages: [{
                         date: '10/01/2020 15:30:55',
                         message: 'Hai portato a spasso il cane?',
-                        status: 'sent'
+                        status: 'sent',
+                        menu: false
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         message: 'Ricordati di dargli da mangiare',
-                        status: 'sent'
+                        status: 'sent',
+                        menu: false
                     },
                     {
                         date: '10/01/2020 16:15:22',
                         message: 'Tutto fatto!',
-                        status: 'received'
+                        status: 'received',
+                        menu: false
                     }
                 ],
             },
@@ -30,17 +33,20 @@ const app = new Vue({
                 messages: [{
                         date: '20/03/2020 16:30:00',
                         message: 'Ciao come stai?',
-                        status: 'sent'
+                        status: 'sent',
+                        menu: false
                     },
                     {
                         date: '20/03/2020 16:30:55',
                         message: 'Bene grazie! Stasera ci vediamo?',
-                        status: 'received'
+                        status: 'received',
+                        menu: false
                     },
                     {
                         date: '20/03/2020 16:35:00',
                         message: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                        status: 'received'
+                        status: 'received',
+                        menu: false
                     }
                 ],
             },
@@ -51,17 +57,20 @@ const app = new Vue({
                 messages: [{
                         date: '28/03/2020 10:10:40',
                         message: 'La Marianna va in campagna',
-                        status: 'received'
+                        status: 'received',
+                        menu: false
                     },
                     {
                         date: '28/03/2020 10:20:10',
                         message: 'Sicuro di non aver sbagliato chat?',
-                        status: 'sent'
+                        status: 'sent',
+                        menu: false
                     },
                     {
                         date: '28/03/2020 16:15:22',
                         message: 'Ah scusa!',
-                        status: 'received'
+                        status: 'received',
+                        menu: false
                     }
                 ],
             },
@@ -72,24 +81,27 @@ const app = new Vue({
                 messages: [{
                         date: '10/01/2020 15:30:55',
                         message: 'Lo sai che ha aperto una nuova pizzeria?',
-                        status: 'sent'
+                        status: 'sent',
+                        menu:false
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         message: 'fanno i croquette buoni?',
-                        status: 'received'
+                        status: 'received',
+                        menu: false
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         message: 'sicuramente no peró proviamo',
-                        status: 'sent'
+                        status: 'sent',
+                        menu: false
                     }
                 ],
             },
         ],
 
 
-
+        currentMessage:0,
         currentUser: 0,
         sent: 'sent',
         received: "received",
@@ -97,7 +109,10 @@ const app = new Vue({
         activeChat: 'activeChat',
         searchUtente: '',
         none: 'none',
-        lastAccess: 'Ultimo acesso'
+        lastAccess: 'Ultimo acesso', 
+        displayBlock: 'display-flex'
+            
+        
 
     },
 
@@ -151,10 +166,8 @@ const app = new Vue({
                 this.contacts.forEach(element => {
                     if (element.name.toLowerCase().includes(this.searchUtente.toLowerCase())) {
                         element.visible = true;
-                        console.log(element.visible)
                     } else {
                         element.visible = false;
-                        console.log(element.visible)
                     }
 
 
@@ -172,9 +185,26 @@ const app = new Vue({
         },
 
 
-    }
+        
+
+        dropDown:function(index){
+            
+            if (this.contacts[this.currentUser].messages[index].menu == false) {
+                this.contacts[this.currentUser].messages[index].menu = true
+            }else{
+              this.contacts[this.currentUser].messages[index].menu = false;
+            }
+        },
+
+        deleteMsg: function(current,index){
+          this.contacts[current].messages.splice(index,1)
+        }
 
 
+       
+    },
+
+ 
 
 
 })

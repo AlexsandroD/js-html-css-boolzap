@@ -90,10 +90,21 @@
                         </div>
                         <!-- //barra utente chat  -->
                         <main>
-                           <div id="chat" v-for="(text, index) in contacts[currentUser].messages" :class="text.status == sent ? 'sent' : 'received' " @keyup.enter='answer(currentUser)'>
+
+                           <div id="chat" v-for="(text, index) in contacts[currentUser].messages" :class="text.status == sent ? 'sent' : 'received' " @keyup.enter='answer(currentUser)'@click="dropDown(index)">
                               {{text.message}}
                               <div class="date">{{text.date}}</div>
+                              <div class="dropdown" :class="contacts[currentUser].messages[index].menu != false ? 'display-flex' : '' ">
+                                  <ul>
+                                      <li @click='deleteMsg(currentUser,index)'>delete message
+                                      </li>
+                                      <li>
+                                          Info contact 
+                                      </li>
+                                  </ul>
+                              </div>
                            </div>
+
                         </main>
                         <footer>
                             <i class="far fa-smile"></i>

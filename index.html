@@ -60,8 +60,11 @@
 
                     <div class="container-contatti" >
                         <div class="elenco-contatti" v-for='(contact, index) in contacts'@click='active(index)' :class="currentUser == index ? 'active-chat' : ''" v-if='contact.visible == true ? "none" : "" '>
-                            <img :src="'img/avatar'+ contact.avatar + '.jpg'" alt="">
-                            <span>{{contact.name}}</span>
+                            <div class="img-n-name">
+                                <img :src="'img/avatar'+ contact.avatar + '.jpg'" alt="">
+                                <span>{{contact.name}}</span>
+                            </div>
+                            <div class="div-info">{{lastAccess}}</div>
                         </div>
                     </div>
                     <!-- contacts section  -->
@@ -91,12 +94,14 @@
                         <!-- //barra utente chat  -->
                         <main>
 
-                           <div id="chat" v-for="(text, index) in contacts[currentUser].messages" :class="text.status == sent ? 'sent' : 'received' " @keyup.enter='answer(currentUser)'@click="dropDown(index)">
+                           <div id="chat" v-for="(text, index) in contacts[currentUser].messages" :class="text.status == sent ? 'sent' : 'received' " @keyup.enter='answer(currentUser)'>
                               {{text.message}}
                               <div class="date">{{text.date}}</div>
-                              <div class="dropdown" :class="contacts[currentUser].messages[index].menu != false ? 'display-flex' : '' ">
+                              <i @click="dropDown(index)" class="fas fa-chevron-up" class="dropdown" :class="contacts[currentUser].messages[index].menu != false ? 'rotate' : '' "></i>
+                              <div class="dropdown" :class="contacts[currentUser].messages[index].menu != false ? 'transform' : '' ">
+                                  <i @click="dropDown(index)" class="fas fa-chevron-up" class="dropdown" :class="contacts[currentUser].messages[index].menu != false ? 'rotate' : '' "></i>
                                   <ul>
-                                      <li @click='deleteMsg(currentUser,index)'>delete message
+                                      <li @click='deleteMsg(currentUser,index)'>Delete message
                                       </li>
                                       <li>
                                           Info contact 
@@ -109,8 +114,9 @@
                         <footer>
                             <i class="far fa-smile"></i>
                             <i class="fas fa-paperclip"></i>
-                            <input type="text" placeholder="Type a message" v-model="messageContent"  @keyup.enter='addMessage(currentUser)'>
-                            <i class="fas fa-microphone"></i>
+                            <input type="text" placeholder="Type a message" v-model="messageContent"  @keyup.enter='addMessage(currentUser)' @keyup="mic(currentUser)" >
+                            <i class="fas fa-microphone" v-if="microfono != true ? 'none' : '' "></i>
+                            <i class="fas fa-paper-plane"v-if="microfono != false ? 'none' : '' " ></i>
                         </footer>
                 </div> 
                 <!-- /colonna dx  -->

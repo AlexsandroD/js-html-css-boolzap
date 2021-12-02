@@ -135,6 +135,7 @@ body {
 
 /* elenco contatti  */
 .container-contatti {
+    overflow-x: hidden;
     overflow-y: scroll;
     height: inherit;
 }
@@ -145,8 +146,12 @@ body {
 
 .elenco-contatti {
     display: flex;
+    justify-self: center;
+    /* flex-direction: column; */
     align-items: center;
     margin: 10px;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .elenco-contatti img {
@@ -154,6 +159,18 @@ body {
     width: 55px;
     border-radius: 50%;
     margin-right: 10px;
+}
+
+.img-n-name{
+    display: flex;
+    align-items: center;
+    text-align: right;
+}
+
+.div-info{
+    font-size: 10px;
+    margin: 0 20px;
+    text-align: right;
 }
 
 /* //elenco contatti  */
@@ -220,6 +237,8 @@ main {
 #chat{
     position:relative;
     top: 50px;
+    overflow-wrap: break-word;
+    padding: 20px;
 }
 
 .sent {
@@ -230,13 +249,12 @@ main {
     justify-content: center;
     align-self: end;
     background-color: #D5F9BA;
-    max-width: 35%;
+    max-width:400px;
     margin:0px 100px 20px 100px;
     padding: 10px;
     border-radius: 12px 12px 0px 12px;
     font-size: 14px;
-
-
+    overflow-wrap: auto;
 }
 
 
@@ -247,13 +265,13 @@ main {
     justify-content: center;
     align-items: start;
     align-self: start;
-    max-width: 35%;
+    max-width:400px ;
     margin: 10px 100px;
     padding: 10px;
     background-color: white;
     border-radius: 12px 12px 12px 0px;
     font-size: 14px;
-
+    overflow-wrap: auto;
 }
 
 .date{
@@ -292,7 +310,7 @@ footer i {
 .col-2 input{
     border: none;
     padding: 5px;
-    border-radius: 8px;
+    border-radius: 20px;
 }
 
 /* footer section  */
@@ -332,7 +350,7 @@ footer i {
 
 /* dorpdown  */
 .dropdown{
-  display: none;
+  display: flex;
   width: 100%;
   position: absolute;
   background-color: #f9f9f9;
@@ -340,6 +358,8 @@ footer i {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
   z-index: 1;
+  transform: scale(0);
+  transition: 0.2s;
 }
 
 .dropdown li{
@@ -356,6 +376,27 @@ footer i {
     transform: scale(0.97);
 }
 
-.display-flex{
-    display: flex;
+.transform{
+    transform: scale(1);
+    transition: 0.2s;
+   
+    
+}
+#chat i{
+    position:absolute;
+    top: -3px;
+    right: 2px;
+    padding: px;
+    margin: 5px;
+    color: rgba(128, 128, 128, 0.637);
+    transition: 0.2s;
+   
+    
+}
+
+
+.rotate{
+    transform: rotate(180deg);
+    transition: 0.2s;
+    
 }

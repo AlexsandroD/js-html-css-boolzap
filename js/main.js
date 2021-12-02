@@ -27,7 +27,7 @@ const app = new Vue({
                 ],
             },
             {
-                name: 'Fabio',
+                name: 'Matteo',
                 avatar: '_2',
                 visible: true,
                 messages: [{
@@ -101,8 +101,9 @@ const app = new Vue({
         ],
 
 
-        currentMessage:0,
+     
         currentUser: 0,
+        lastMessage:null,
         sent: 'sent',
         received: "received",
         messageContent: null,
@@ -110,7 +111,9 @@ const app = new Vue({
         searchUtente: '',
         none: 'none',
         lastAccess: 'Ultimo acesso', 
-        displayBlock: 'display-flex'
+        transform: 'transform',
+        rotate:'rotate',
+        microfono:false
             
         
 
@@ -118,7 +121,6 @@ const app = new Vue({
 
     mounted: function () {
         this.lastSeen();
-
     },
 
 
@@ -127,29 +129,38 @@ const app = new Vue({
     methods: {
         active: function (index) {
             this.currentUser = index;
+ 
         },
 
 
-        addMessage: function (current) {
-            console.log(this.messageContent)
+        addMessage: function (current,index) {
             if (this.messageContent != '') {
+
+                
+
                 this.contacts[current].messages.push({
                     message: this.messageContent,
                     status: 'sent',
+                    menu: false,
                     date: dayjs().format('DD/MM/YYYY,HH,mm,ss'),
-                })
-                this.answer()
+                }),
+              
+               this.answer()
+               
+                
             }
             this.messageContent = '';
         },
-        addAnswer: function () {
+        addAnswer: function (index) {
             console.log()
             this.contacts[this.currentUser].messages.push({
                 message: 'ok',
                 status: 'received',
+                menu: false,
                 date: dayjs().format('DD/MM/YYYY,HH,mm,ss'),
             })
             this.lastAccess = 'Ultimo accesso ' + dayjs().format('DD/MM/YYYY HH:mmss')
+            
         },
 
         answer: function () {
@@ -176,7 +187,7 @@ const app = new Vue({
         },
 
 
-        lastSeen: function () {
+        lastSeen: function (index) {
             this.contacts[this.currentUser].messages.forEach(element => {
                 if (element.status == 'received') {
                     this.lastAccess = 'last seen' + ' ' + element.date
@@ -195,16 +206,34 @@ const app = new Vue({
               this.contacts[this.currentUser].messages[index].menu = false;
             }
         },
+        
+        closeDrop:function(){
+            if (this.contacts.messages.menu == true) {
+                this.contacts.messages.menu = false
+        }},
+
+       
 
         deleteMsg: function(current,index){
           this.contacts[current].messages.splice(index,1)
-        }
+        },
 
 
+       mic:function(){
+           if(this.messageContent != 0){
+               this.microfono = true
+
+           }else{
+               this.microfono = false
+           }
+           
+       }
        
     },
+
 
  
 
 
 })
+

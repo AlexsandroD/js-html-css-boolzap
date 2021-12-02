@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
     <title>Boolzap</title>
 </head>
 <body class="debug">
@@ -50,10 +50,10 @@
                         <!--// attiva notiiche  -->
     
                         <!-- searchbar -->
-                        <form>
-                            <div class="button search"><a href="#"><i class="fa fa-search"></i></a></div>
-                            <input type="text" placeholder="cerca o inizia una nuova chat" name="search">
-                        </form>
+                        <div class='form'>
+                            <div class="button search" @click='filter()'><i class="fa fa-search"></i></div>
+                            <input type="text" placeholder="Type a message" v-model="searchUtente"  @keyup.enter='filter'>
+                        </div>
                         <!-- //searchbar -->
                     </div>
                     <div class="container-contatti">
@@ -108,6 +108,7 @@
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

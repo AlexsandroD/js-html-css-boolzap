@@ -91,7 +91,7 @@ body {
 /* /notification */
 
 /* search bar  */
-.col-1 form {
+.col-1 .form {
     position: relative;
     background-color: white;
     padding: 3px;

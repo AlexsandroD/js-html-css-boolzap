@@ -66,8 +66,8 @@ const app = new Vue({
                 ],
             },
             {
-                name: 'Luisa',
-                avatar: '_6',
+                name: 'Monica',
+                avatar: '_io',
                 visible: true,
                 messages: [{
                         date: '10/01/2020 15:30:55',
@@ -76,8 +76,13 @@ const app = new Vue({
                     },
                     {
                         date: '10/01/2020 15:50:00',
-                        message: 'Si, ma preferirei andare al cinema',
+                        message: 'fanno i croquette buoni?',
                         status: 'received'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        message: 'sicuramente no peró proviamo',
+                        status: 'sent'
                     }
                 ],
             },
@@ -90,10 +95,11 @@ const app = new Vue({
        received: "received",
        messageContent:null,
        activeChat:'activeChat',
-       timer:0,
+       searchUtente:''
 
     },
-   
+
+    
    
 
     methods:{
@@ -109,7 +115,7 @@ const app = new Vue({
                     this.contacts[current].messages.push({
                         message:this.messageContent,
                         status:'sent',
-                        date: '10/01/2020 15:50:00',
+                        date: dayjs().format('DD/MM/YYYY,HH,mm,ss'),
                     })
                     this.answer()
                 }
@@ -120,7 +126,7 @@ const app = new Vue({
              this.contacts[this.currentUser].messages.push({
                  message: 'ok',
                  status: 'received',
-                 date: '10/01/2020 15:50:00',
+                 date: dayjs().format('DD/MM/YYYY,HH,mm,ss'),
              })
          },
 
@@ -129,20 +135,26 @@ const app = new Vue({
                  this.addAnswer();
              }, 1000);
          },
-        //   answer: function () {
+       
 
-        //        let self = this;
-        //        this.timer = setTimeout(() => {
-                   
-        //        }, timeout);(function () {
-        //            self.addAnswer(this.contacts[current].messages.message);
-        //        }, 1000);
-        //        console.log()
-        //    }, 
+    
+         filter: function () {
+            let n='';
+            this.contacts.forEach(element => {
+                for (let i = 0; i < element.name.length; i++){
+                    n += element.name[i];
+                    // console.log(n)
+                   console.log(n);
+                }
+              
 
-        
-     
+            });
+
+            
+         }    
     }
+
+
 
     
 })

@@ -106,7 +106,7 @@ body {
     height: 30px;
     border: none;
     padding: 5px;
-
+    outline: none
 }
 
 .col-1 input:active{
@@ -115,7 +115,8 @@ body {
 
 .col-1, .col-2 input:focus {
     border: none;
-    outline: none;
+    outline: none
+
 }
 
 .col-1 .button.search {

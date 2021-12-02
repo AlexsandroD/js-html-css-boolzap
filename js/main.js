@@ -1,7 +1,7 @@
 const app = new Vue({
-    el:"#root",
-    data:{
-         
+    el: "#root",
+    data: {
+
         contacts: [{
                 name: 'Michele',
                 avatar: '_1',
@@ -88,95 +88,93 @@ const app = new Vue({
             },
         ],
 
-        
 
-       currentUser:0,
-       sent:'sent',
-       received: "received",
-       messageContent:null,
-       activeChat:'activeChat',
-       searchUtente:'',
-       none:'none',
-       lastAccess: 'Ultimo acesso'
+
+        currentUser: 0,
+        sent: 'sent',
+        received: "received",
+        messageContent: null,
+        activeChat: 'activeChat',
+        searchUtente: '',
+        none: 'none',
+        lastAccess: 'Ultimo acesso'
 
     },
 
-   mounted: function () {
-       this.lastSeen();
+    mounted: function () {
+        this.lastSeen();
 
-   },
+    },
 
-    
-   
 
-    methods:{
-        active: function(index){
+
+
+    methods: {
+        active: function (index) {
             this.currentUser = index;
         },
 
 
         addMessage: function (current) {
-            console.log(this.messageContent
-                )
-                if (this.messageContent != ''){
-                    this.contacts[current].messages.push({
-                        message:this.messageContent,
-                        status:'sent',
-                        date: dayjs().format('DD/MM/YYYY,HH,mm,ss'),
-                    })
-                    this.answer()
-                }
+            console.log(this.messageContent)
+            if (this.messageContent != '') {
+                this.contacts[current].messages.push({
+                    message: this.messageContent,
+                    status: 'sent',
+                    date: dayjs().format('DD/MM/YYYY,HH,mm,ss'),
+                })
+                this.answer()
+            }
             this.messageContent = '';
         },
-         addAnswer: function () {
-             console.log()
-             this.contacts[this.currentUser].messages.push({
-                 message: 'ok',
-                 status: 'received',
-                 date: dayjs().format('DD/MM/YYYY,HH,mm,ss'),
-             })
-             this.lastAccess = 'Ultimo accesso '+ dayjs().format('DD/MM/YYYY HH:mmss')
-         },
+        addAnswer: function () {
+            console.log()
+            this.contacts[this.currentUser].messages.push({
+                message: 'ok',
+                status: 'received',
+                date: dayjs().format('DD/MM/YYYY,HH,mm,ss'),
+            })
+            this.lastAccess = 'Ultimo accesso ' + dayjs().format('DD/MM/YYYY HH:mmss')
+        },
 
-         answer: function () {
-             setTimeout(() => {
-                 this.addAnswer();
-             }, 1000);
-         },
-       
+        answer: function () {
+            setTimeout(() => {
+                this.addAnswer();
+            }, 1000);
+        },
 
-    
-        filter: function() {
-            if(this.searchUtente != ''){
 
-                this.contacts.forEach(element  => {
-                    if(element.name.includes(this.searchUtente)){
-                        element.visible = true; 
+
+        filter: function () {
+            if (this.searchUtente != '') {
+
+                this.contacts.forEach(element => {
+                    if (element.name.toLowerCase().includes(this.searchUtente.toLowerCase())) {
+                        element.visible = true;
                         console.log(element.visible)
-                    }else{
+                    } else {
                         element.visible = false;
-                        console.log(element.visible)     
+                        console.log(element.visible)
                     }
-                    
-                    
+
+
                 });
             }
-        },  
+        },
 
-      
-          lastSeen: function () {
-              this.contacts[this.currentUser].messages.forEach(element => {
-                  if (element.status == 'received'){
-                      this.lastAccess ='last seen'+ ' ' + element.date
-                  }
-              });
-          },
 
-        
+        lastSeen: function () {
+            this.contacts[this.currentUser].messages.forEach(element => {
+                if (element.status == 'received') {
+                    this.lastAccess = 'last seen' + ' ' + element.date
+                }
+            });
+        },
+
+
     }
 
 
 
-    
-})
 
+})

@@ -52,14 +52,14 @@
                         <!-- searchbar -->
                         <div class='form'>
                             <div class="button search" @click='filter()'><i class="fa fa-search"></i></div>
-                            <input type="text" placeholder="Type a message" v-model="searchUtente"  @keyup.enter='filter'>
+                            <input type="text" placeholder="Type a message" v-model="searchUtente"  @keyup='filter'>
                         </div>
                         <!-- //searchbar -->
                     </div>
                     <!-- contacts section  -->
 
                     <div class="container-contatti" >
-                        <div class="elenco-contatti" v-for='(contact, index) in contacts'@click='active(index)' :class="currentUser == index ? 'active-chat' : ''" :class='contacts.visible == true ? "none" : "" '>
+                        <div class="elenco-contatti" v-for='(contact, index) in contacts'@click='active(index)' :class="currentUser == index ? 'active-chat' : ''" v-if='contact.visible == true ? "none" : "" '>
                             <img :src="'img/avatar'+ contact.avatar + '.jpg'" alt="">
                             <span>{{contact.name}}</span>
                         </div>

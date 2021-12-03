@@ -116,7 +116,7 @@
                             <i class="fas fa-paperclip"></i>
                             <input type="text" placeholder="Type a message" v-model="messageContent"  @keyup.enter='addMessage(currentUser)' @keyup="mic(currentUser)" >
                             <i class="fas fa-microphone" v-if="microfono != true ? 'none' : '' "></i>
-                            <i class="fas fa-paper-plane"v-if="microfono != false ? 'none' : '' " ></i>
+                            <i class="fas fa-paper-plane"v-if="microfono != false ? 'none' : '' " @click="addAnswer()" ></i>
                         </footer>
                 </div> 
                 <!-- /colonna dx  -->

@@ -13,6 +13,10 @@ body {
     background: linear-gradient(180deg, rgba(0, 150, 137, 1) 12%, rgba(219, 219, 210, 1) 12%);
 }
 
+i:active {
+    transform: scale(0.97);
+}
+
 
 .container {
     background-color: white;
@@ -306,6 +310,7 @@ footer i {
     margin: 0 5px;
     color: #B1B1B1;
 }
+
 
 .col-2 input{
     border: none;

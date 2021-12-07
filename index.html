@@ -56,15 +56,29 @@
                         </div>
                         <!-- //searchbar -->
                     </div>
-                    <!-- contacts section  -->
 
-                    <div class="container-contatti" >
-                        <div class="elenco-contatti" v-for='(contact, index) in contacts'@click='active(index)' :class="currentUser == index ? 'active-chat' : ''" v-if='contact.visible == true ? "none" : "" '>
+                    <!-- contacts section  -->
+                    <div class="container-contatti" @click='introPage'>
+                        <div class="elenco-contatti" v-for='(contact, index) in contacts'@click='active(index)' :class="currentUser == index ? activeChat : ''" v-if='contact.visible == true ? "none" : "" '>
                             <div class="img-n-name">
                                 <img :src="'img/avatar'+ contact.avatar + '.jpg'" alt="">
-                                <span>{{contact.name}}</span>
+                                <div class="text-contact">
+                                    <div>{{contact.name}}</div>
+                                    <div class="last-message ">
+                                        <div class="icon-check">  
+                                            <i class="fas fa-check check uno" :class="currentUser == index ? 'blue' : '' "></i>
+                                            <i class="fas fa-check check due":class="currentUser == index ? 'blue' : '' "></i>
+                                        </div>
+                                        {{lastMessage(index)}} 
+                                    </div>
+                                </div>
                             </div>
-                            <div class="div-info">{{lastAccess}}</div>
+                            <div class="div-info">
+                                <span>
+                                    {{lastDate(index)}}
+                                </span>
+                            </div>
+                         
                         </div>
                     </div>
                     <!-- contacts section  -->
@@ -74,7 +88,16 @@
 
 
                 <!-- colonna dx  -->
+
                 <div class="col-2">
+                    <div class="intro-page" :class="intro != true ? 'none' : '' ">
+                        <img src="img/image_21_thumb1200_4-3.png" alt="">
+                        <div class="text-intro">
+                            <div>keep your phone connected</div>
+                            <p>WhatsApp connects to you phone to sync messages. To reduce data usage, connect your phone yo Wi-Fi.</p>
+                        </div>
+                        <div id="link-calls" class="span"><i class="fas fa-laptop"></i>Make calls from desktop with WhatsApp for windows. <a href="">Get it here</a></div>
+                    </div>
                      <div class="utente">
                         <!-- barra utente chat  -->
                             <div class="img-utente-conversazione">
@@ -95,7 +118,10 @@
                         <main>
 
                            <div id="chat" v-for="(text, index) in contacts[currentUser].messages" :class="text.status == sent ? 'sent' : 'received' " @keyup.enter='answer(currentUser)'>
-                              {{text.message}}
+                              <div class="text-message">
+                                  
+                                  {{text.message}}
+                            </div>
                               <div class="date">{{text.date}}</div>
                               <i @click="dropDown(index)" class="fas fa-chevron-up" class="dropdown" :class="contacts[currentUser].messages[index].menu != false ? 'rotate' : '' "></i>
                               <div class="dropdown" :class="contacts[currentUser].messages[index].menu != false ? 'transform' : '' ">
@@ -116,7 +142,7 @@
                             <i class="fas fa-paperclip"></i>
                             <input type="text" placeholder="Type a message" v-model="messageContent"  @keyup.enter='addMessage(currentUser)' @keyup="mic(currentUser)" >
                             <i class="fas fa-microphone" v-if="microfono != true ? 'none' : '' "></i>
-                            <i class="fas fa-paper-plane"v-if="microfono != false ? 'none' : '' " @click="addAnswer()" ></i>
+                            <i  @click="addMessage(currentUser)" class="fas fa-paper-plane"v-if="microfono != false ? 'none' : '' " ></i>
                         </footer>
                 </div> 
                 <!-- /colonna dx  -->

@@ -20,6 +20,11 @@ i:active {
 
 .container {
     background-color: white;
+    height: 95vh;
+    width: 75%;
+    margin: 2% auto;
+
+    
 }
 
 .row {
@@ -44,7 +49,7 @@ i:active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #EAEAEA;
+    background-color: #F8F9FA;
     padding: 5px;
     height: 50px;
 }
@@ -97,7 +102,7 @@ i:active {
 /* search bar  */
 .col-1 .form {
     position: relative;
-    background-color: white;
+    background-color: #F8F9FA;
     padding: 3px;
     height: 40px;
     display: flex;
@@ -142,6 +147,8 @@ i:active {
     overflow-x: hidden;
     overflow-y: scroll;
     height: inherit;
+    background-color: #F8F9FA;
+    width: 100%;
 }
 
 .elenco-contatti:hover{
@@ -156,6 +163,12 @@ i:active {
     margin: 10px;
     width: 100%;
     justify-content: space-between;
+}
+.text-contact{
+    text-align: left;
+}
+.text-contact .last-message{
+    font-size: 10px;
 }
 
 .elenco-contatti img {
@@ -172,9 +185,36 @@ i:active {
 }
 
 .div-info{
+    display: flex;
+    flex-direction: column;
     font-size: 10px;
     margin: 0 20px;
     text-align: right;
+}
+
+.div-info:last-of-type(span){
+    font-size: 6px;
+}
+
+.last-message{
+    position:relative;
+    display: flex;
+    align-items: start;
+    width: 100%; 
+}
+
+.icon-check{
+    margin-right: 6px;
+}
+
+.check{
+    color:gray;
+   
+}
+
+.check.due{
+    position: absolute;
+    left: 5px;
 }
 
 /* //elenco contatti  */
@@ -188,9 +228,59 @@ i:active {
 /* col2 styling  */
 
 .col-2 {
+    position: relative;
     width: 70%;
     border-left: 0.1px solid #b4b2b2;
 }
+
+/* intro page  */
+
+.intro-page{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F8F9FA;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    z-index: 3;
+}
+
+.intro-page img{
+    width: 300px;
+}
+.text-intro div{
+    margin: 40px 0;
+    font-size: 30px;
+    font-weight:lighter;
+}
+
+.text-intro p{
+    max-width: 500px;
+    padding-bottom: 40px;
+    border-bottom: 0.5px solid gray;
+    color: gray;
+}
+
+#link-calls{
+margin: 40px;
+color: gray;
+}
+#link-calls a{
+    color: #0AA56D;
+    text-decoration: none;
+}
+
+#link-calls i{
+    margin: 0 5px;
+}
+
+.text-intro{
+    text-align: center;
+}
+
+/* /intro page  */
 
 /* barra conversazione  */
 
@@ -245,6 +335,11 @@ main {
     padding: 20px;
 }
 
+.text-message{
+   width: 100%;
+   overflow-wrap: break-word;
+}
+
 .sent {
     position: relative;
     display: flex;
@@ -258,7 +353,6 @@ main {
     padding: 10px;
     border-radius: 12px 12px 0px 12px;
     font-size: 14px;
-    overflow-wrap: auto;
 }
 
 
@@ -275,8 +369,9 @@ main {
     background-color: white;
     border-radius: 12px 12px 12px 0px;
     font-size: 14px;
-    overflow-wrap: auto;
 }
+
+
 
 .date{
     padding: 5px;
@@ -303,12 +398,13 @@ footer {
 
 footer input {
     height: 40px;
-    width: 85%;
+    width: 78%;
 }
 
 footer i {
     margin: 0 5px;
     color: #B1B1B1;
+    max-width: 50px;
 }
 
 
@@ -334,19 +430,19 @@ footer i {
 
 /* debug */
 
-.debug .container {
+/* .debug .container {
     height: 90vh;
     width: 80%;
     margin: 2% auto;
 
-}
+} */
 
 
-.debug .col-1,
+/* .debug .col-1,
 .debug .col-2 {
     height: 100%;
 
-}
+} */
 
 .none{
     display: none;
@@ -389,14 +485,17 @@ footer i {
 }
 #chat i{
     position:absolute;
+    display: none;
     top: -3px;
     right: 2px;
     padding: px;
     margin: 5px;
     color: rgba(128, 128, 128, 0.637);
     transition: 0.2s;
-   
-    
+}
+
+#chat:hover i{
+    display: block;
 }
 
 
@@ -404,4 +503,8 @@ footer i {
     transform: rotate(180deg);
     transition: 0.2s;
     
+}
+
+.blue{
+    color: rgb(0, 183, 255);
 }

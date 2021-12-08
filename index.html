@@ -118,10 +118,14 @@
                         <main>
 
                            <div id="chat" v-for="(text, index) in contacts[currentUser].messages" :class="text.status == sent ? 'sent' : 'received' " @keyup.enter='answer(currentUser)'>
+                              
                               <div class="text-message">
-                                  
+                                   <div class="icon-check">  
+                                            <i class="fas fa-check check uno" :class="currentUser == index ? 'blue' : '' "></i>
+                                            <i class="fas fa-check check due":class="currentUser == index ? 'blue' : '' "></i>
+                                    </div>
                                   {{text.message}}
-                            </div>
+                              </div>
                               <div class="date">{{text.date}}</div>
                               <i @click="dropDown(index)" class="fas fa-chevron-up" class="dropdown" :class="contacts[currentUser].messages[index].menu != false ? 'rotate' : '' "></i>
                               <div class="dropdown" :class="contacts[currentUser].messages[index].menu != false ? 'transform' : '' ">

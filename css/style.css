@@ -336,6 +336,8 @@ main {
 }
 
 .text-message{
+   display: flex;
+   position:relative;
    width: 100%;
    overflow-wrap: break-word;
 }
@@ -423,6 +425,9 @@ footer i {
 .active-chat{
     background-color:#E9EBEB;
 }
+.active-chat i{
+    color: rgb(0, 183, 255);
+}
 
 
 
@@ -483,7 +488,7 @@ footer i {
    
     
 }
-#chat i{
+#chat .fas.fa-chevron-up {
     position:absolute;
     display: none;
     top: -3px;
@@ -494,7 +499,7 @@ footer i {
     transition: 0.2s;
 }
 
-#chat:hover i{
+#chat:hover .fas.fa-chevron-up{
     display: block;
 }
 
